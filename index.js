@@ -15,6 +15,9 @@ app.use('/images', express.static("public/images"));
 const ConnectDb = require("./config/Config")
 const ProductAddRoute = require("./controllers/api/insert/AddProductApi");
 ConnectDb();
+app.get("/",function (req, res) {
+    res.status(200).json({msg: "Hi Backend!"});
+})
 app.use("/api/v1/insert", ProductAddRoute);
 app.listen(port, () => {
     console.log("Backend listening on port " + port);
