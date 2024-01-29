@@ -2,7 +2,7 @@ const express = require('express');
 const multer = require('multer');
 const route = express.Router();
 const path = require('path')
-const AddProductApi = require("../../../models/products/ProductSchema")
+const AddProductApi = require("../../../models/products/ProductSchema");
 const storage = multer.diskStorage({
     destination: 'public/images/',
     filename: function (req, file, cb) {

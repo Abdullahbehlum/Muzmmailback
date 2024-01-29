@@ -12,8 +12,8 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use('/images', express.static("public/images"));
 
-const ConnectDb = require("../config/Config")
-const ProductAddRoute = require("../controllers/api/insert/AddProductApi");
+const ConnectDb = require("./config/Config")
+const ProductAddRoute = require("./controllers/api/insert/AddProductApi");
 ConnectDb();
 app.use("/api/v1/insert", ProductAddRoute);
 app.listen(port, () => {
