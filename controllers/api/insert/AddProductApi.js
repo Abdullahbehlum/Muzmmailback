@@ -34,7 +34,10 @@ route.post("/",  upload.any('images') ,async (req, res) => {
 })
 route.get("/", async (req, res) => {
     try {
-        const product = await AddProductApi.find().maxTimeMS(200000);
+     const page = req.query.page || 1;
+const limit = 10;  // Adjust as needed
+const product = await AddProductApi.find().skip((page - 1) * limit).limit(limit).lean();
+Th
         res.status(201).json({ msg: 'product get successfully', products: product })
     } catch (error) {
         res.status(500).json({ msg: 'Product Add failed', error: error.message })
