@@ -10,7 +10,7 @@ const storage = multer.diskStorage({
     },
 });
 const upload = multer({ storage: storage });
-route.post("/",  upload.any('images') ,async (req, res) => {
+route.post("/", function upload.any('images') ,async (req, res) => {
     try {
         const { name, price, Description,
         } = req.body;
@@ -32,7 +32,7 @@ route.post("/",  upload.any('images') ,async (req, res) => {
         res.status(500).json({ msg: 'Product Add failed', error: error.message })
     }
 })
-route.get("/", async (req, res) => {
+route.get("/", function async (req, res) => {
     try {
      const page = req.query.page || 1;
 const limit = 10;  // Adjust as needed
