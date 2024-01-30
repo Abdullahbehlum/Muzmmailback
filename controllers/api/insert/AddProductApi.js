@@ -34,7 +34,7 @@ route.post("/",  upload.any('images') ,async (req, res) => {
 })
 route.get("/", async (req, res) => {
     try {
-        const product = await AddProductApi.find().lean();
+        const product = await AddProductApi.find().lean().exec();
         res.status(201).json({ msg: 'product get successfully', products: product })
     } catch (error) {
         res.status(500).json({ msg: 'Product Add failed', error: error.message })
